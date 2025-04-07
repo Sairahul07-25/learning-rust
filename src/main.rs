@@ -1,3 +1,65 @@
+pub fn is_even(x:i32) -> bool {
+    return x%2==0;
+}
+
+pub fn get_first_name(str:String) -> String{
+    let mut first_name = String::from("");
+    for c in str.chars(){
+        if c == ' '{
+            break;
+        }
+        first_name.push(c);
+    }
+    return first_name;
+}
+
+pub fn do_sum(a:i32, b:i32) -> i32{
+    return a+b;
+}
+
+pub fn update_word(some_string: &mut String) {
+    some_string.push_str(" World");
+}
+
+
+
+//#[derive(Clone)]
+//struct User {
+//    active: bool,
+//    username: String,
+//    sign_in_count: u64,
+//}
+//pub fn change_name(user1: User){
+//    print!("{:?}", user1.active);
+//}
+
+
+struct Rect{
+    width: u32,
+    height: u32,
+}
+
+impl Rect{
+    fn area(&self) -> u32{
+        self.width * self.height
+    }
+}
+
+//enum
+enum Shape {
+    Circle(f64),
+    Square(f64),
+    Rectangle(f64, f64),
+}
+
+fn calculate_area(shape: Shape) -> f64{
+    match shape{
+        Shape::Circle(radius) => std::f64::consts::PI * radius * radius,
+        Shape::Square(length) => length*length,
+        Shape::Rectangle(width, height) => width* height,
+    }
+}
+
 
 pub fn main() {
     println!("Hello, world!.");
@@ -98,69 +160,4 @@ pub fn main() {
     println!("Area of Circle: {}", calculate_area(circle));
     println!("Area of Square: {}", calculate_area(square));
     println!("Area of Rectangle: {}", calculate_area(rectangle));
-
-
-}
-
-
-pub fn is_even(x:i32) -> bool {
-    return x%2==0;
-}
-
-pub fn get_first_name(str:String) -> String{
-    let mut first_name = String::from("");
-    for c in str.chars(){
-        if c == ' '{
-            break;
-        }
-        first_name.push(c);
-    }
-    return first_name;
-}
-
-pub fn do_sum(a:i32, b:i32) -> i32{
-    return a+b;
-}
-
-pub fn update_word(some_string: &mut String) {
-    some_string.push_str(" World");
-}
-
-
-
-//#[derive(Clone)]
-//struct User {
-//    active: bool,
-//    username: String,
-//    sign_in_count: u64,
-//}
-//pub fn change_name(user1: User){
-//    print!("{:?}", user1.active);
-//}
-
-
-struct Rect{
-    width: u32,
-    height: u32,
-}
-
-impl Rect{
-    fn area(&self) -> u32{
-        self.width * self.height
-    }
-}
-
-//enum
-enum Shape {
-    Circle(f64),
-    Square(f64),
-    Rectangle(f64, f64),
-}
-
-fn calculate_area(shape: Shape) -> f64{
-    match shape{
-        Shape::Circle(radius) => std::f64::consts::PI * radius * radius,
-        Shape::Square(length) => length*length,
-        Shape::Rectangle(width, height) => width* height,
-    }
 }
